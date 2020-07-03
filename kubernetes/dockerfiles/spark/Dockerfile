@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-FROM openjdk:8-alpine
+FROM openjdk:8
 
 ARG spark_jars=jars
 ARG img_path=kubernetes/dockerfiles
@@ -29,9 +29,11 @@ ARG k8s_tests=kubernetes/tests
 # docker build -t spark:latest -f kubernetes/dockerfiles/spark/Dockerfile .
 
 RUN set -ex && \
-    apk upgrade --no-cache && \
+    apt-get update && \
+    apt-get install tini -y && \
+    #apk upgrade --no-cache && \
     ln -s /lib /lib64 && \
-    apk add --no-cache bash tini libc6-compat linux-pam nss && \
+    #apk add --no-cache bash tini libc6-compat linux-pam nss && \
     mkdir -p /opt/spark && \
     mkdir -p /opt/spark/work-dir && \
     touch /opt/spark/RELEASE && \

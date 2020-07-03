@@ -83,9 +83,9 @@ function build {
     -t $(image_ref spark-py) \
     -f "$PYDOCKERFILE" .
 
-  docker build $NOCACHEARG "${BINDING_BUILD_ARGS[@]}" \
-    -t $(image_ref spark-r) \
-    -f "$RDOCKERFILE" .
+  #docker build $NOCACHEARG "${BINDING_BUILD_ARGS[@]}" \
+  #  -t $(image_ref spark-r) \
+  #  -f "$RDOCKERFILE" .
 }
 
 function push {

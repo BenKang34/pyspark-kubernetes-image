@@ -1,2 +1,2 @@
 # spark-kubernetes-image
-Dockerfile to build spark image running on kubernetes
+Dockerfile to build pyspark image running on kubernetes
